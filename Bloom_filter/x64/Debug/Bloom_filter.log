@@ -1,0 +1,5 @@
+﻿  Main.cpp
+C:\Users\youngj10\Documents\Code Stuff\Bloom_filter\Main.cpp(43,46): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\youngj10\Documents\Code Stuff\Bloom_filter\Main.cpp(95,1): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\youngj10\Documents\Code Stuff\Bloom_filter\Main.cpp(142,27): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  Bloom_filter.vcxproj -> C:\Users\youngj10\Documents\Code Stuff\Bloom_filter\x64\Debug\Bloom_filter.exe
