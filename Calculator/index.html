@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Calculator</title>
+<script src="index.js"></script>
+<table border="1">
+    <tr>
+        <td colspan="3"><input type="text" id="result"/></td>
+        <td><input type="button" value="c" onclick="clr()"/> </td>
+    </tr>
+    <tr>
+        <td><button type="button" onclick="pushToStorage('0'); dis('0')">0</button></td>
+        <td><button type="button" onclick="pushToStorage('1'); dis('1')">1</button></td>
+        <td><button type="button" onclick="pushToStorage('2'); dis('2')">2</button></td>
+    </tr>
+    <tr>
+        <td><button type="button" onclick="pushToStorage('3'); dis('3')">3</button></td>
+        <td><button type="button" onclick="pushToStorage('4'); dis('4')">4</button></td>
+        <td><button type="button" onclick="pushToStorage('5'); dis('5')">5</button></td>
+    </tr>
+    <tr>
+        <td><button type="button" onclick="pushToStorage('6'); dis('6')">6</button></td>
+        <td><button type="button" onclick="pushToStorage('7'); dis('7')">7</button></td>
+        <td><button type="button" onclick="pushToStorage('8'); dis('8')">8</button></td>
+    </tr>
+    <tr>
+        <td><button type="button" onclick="pushToStorage('9'); dis('9')">9</button></td>
+        <td><button type="button" onclick="pushToStorage('+'); dis('+')">+</button></td>
+        <td><button type="button" onclick="pushToStorage('-'); dis('-')">-</button></td>
+    </tr>
+    <tr>
+        <td><button type="button" onclick="pushToStorage('*'); dis('*')">*</button></td>
+        <td><button type="button" onclick="pushToStorage('/'); dis('/')">/</button></td>
+        <td><button type="button" onclick="pushToStorage('^'); dis('^')">^</button></td>
+    </tr>
+    <tr>
+        <td><button type="button" onclick="pushToStorage('('); dis('(')">(</button></td>
+        <td><button type="button" onclick="pushToStorage(')'); dis(')')">)</button></td>
+        <td><button type="button" onclick="console.log(infix())">=</button></td>
+    </tr>
+</table
+</head>
