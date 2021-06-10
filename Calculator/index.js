@@ -1,29 +1,7 @@
 var storage = [];
+var imageToggle = false;
 
-function isNumeric(num){
-    num = "" + num; //coerce num to be a string
-    return !isNaN(num) && !isNaN(parseFloat(num));
-  }
-
-function pushToStorage(value) {
-    if(storage.length < 0)
-    {storage.push(value); return;}
-    else if (isNumeric(storage[storage.length-1]) && isNumeric(value))
-    {storage[storage.length-1] += value;}
-    else 
-    { storage.push(value);}
-    
-}
-
-function clr() {
-    document.getElementById("result").value = "";
-}
-
-function dis(val)
-{
-    document.getElementById("result").value+=val
-}
-
+// ----------------------- Math Functions Start -----------------------
 function Add(x, y) {
     return x+y;
 }
@@ -40,13 +18,72 @@ function Exponent(x,y)
 {
     return Math.pow(x,y);
 }
-function printAll()
+function Modulus(x,y)
 {
-    storage.forEach(element => {
-        console.log(element);
-    });
-    return;
+    return x%y;
 }
+// ----------------------- math functions end -----------------------
+
+
+// ----------------------- html util functions start -----------------------
+function isNumeric(num){
+    num = "" + num; //coerce num to be a string
+    return !isNaN(num) && !isNaN(parseFloat(num));
+  }
+
+function pushToStorage(value) {
+    if(storage.length <= 0)
+    {
+        if(value == '.'){storage.push('0.');}//Decimal at the start .5 -> 0.5
+        else {storage.push(value);} 
+        return;
+    }
+    else if (isNumeric(storage[storage.length-1]) && isNumeric(value)) //more than one digit number
+    {storage[storage.length-1] += value;}
+    else if (storage[0] == '-' && isNumeric(value)) //negative number at the start
+    {storage[storage.length-1] += value;}
+    else if(storage.length > 2 && !isNumeric(storage[storage.length-2]) && storage[storage.length-1] == '-' && isNumeric(value))
+    {storage[storage.length-1]+=value;}
+    else if (isNumeric(storage[storage.length-1]) && value == '.')// 1.25
+    {storage[storage.length-1] += value;}
+    else if (!isNumeric(storage[storage.length-1]) && value == '.')//decimal not at the start .5->0.5
+    {storage.push('0.');}
+    else 
+    { storage.push(value);}
+    
+}
+
+function clr() {
+    storage = [];
+    document.getElementById("result").value = "";
+}
+
+function dis(val)
+{
+    document.getElementById("result").value+=val
+}
+
+function toggleImage()
+{
+    imageToggle = !imageToggle;
+    if (imageToggle) {
+        var a = document.getElementById('myImage');
+        a.style.background = "url('math.gif')";
+        var b = document.getElementById('tablecenter');
+        b.style.opacity = .7;
+    }
+    else{
+        var a = document.getElementById('myImage');
+        a.style.background = "url('')";
+        var b = document.getElementById('tablecenter');
+        b.style.opacity = 1;
+    }
+}
+
+// ----------------------- html utils end -----------------------
+
+// ----------------------- Infix converter/eval start ----------------------- 
+
 function precedence(a)
 {
     if(a == '^') {return 3;}
@@ -104,7 +141,7 @@ function eval(output)
     output.forEach(element => 
     {
         if(isNumeric(element)){
-            stack.push(parseInt(element));
+            stack.push(parseFloat(element));
         }
         else if(element == '+')
         {
@@ -135,8 +172,17 @@ function eval(output)
             y = stack.pop();
             x = stack.pop();
             stack.push(Exponent(x,y));        
-        }       
+        } 
+        else if(element == '%')
+        {
+            y = stack.pop();
+            x = stack.pop();
+            stack.push(Modulus(x,y));
+        }      
     });
     storage = [];
+    storage.push(stack[stack.length-1]);
     return stack[stack.length-1];
 }
+
+// ----------------------- Infix converter/eval end ----------------------- 
