@@ -42,7 +42,7 @@ function pushToStorage(value) {
     {storage[storage.length-1] += value;}
     else if (storage[0] == '-' && isNumeric(value)) //negative number at the start
     {storage[storage.length-1] += value;}
-    else if(storage.length > 2 && !isNumeric(storage[storage.length-2]) && storage[storage.length-1] == '-' && isNumeric(value))
+    else if(storage.length >= 2 && !isNumeric(storage[storage.length-2]) && storage[storage.length-1] == '-' && isNumeric(value)) //if negative is in the middle of the equation
     {storage[storage.length-1]+=value;}
     else if (isNumeric(storage[storage.length-1]) && value == '.')// 1.25
     {storage[storage.length-1] += value;}
