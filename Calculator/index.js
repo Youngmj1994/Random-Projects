@@ -95,6 +95,13 @@ function precedence(a)
 //infix to postfix function, makes it easier for a computer to read to the calculator. 
 function infix()
 {
+    if(storage.length <= 0 &&  document.getElementById("result").value != "")
+    {
+        for (let index = 0; index < document.getElementById("result").value.length; index++) {
+            pushToStorage(document.getElementById("result").value[index]);
+        }
+    }
+    
    postfix = [];
    stack = [];
    storage.forEach(element => {
