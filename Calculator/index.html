@@ -1,53 +1,36 @@
-<!doctype html>
-<html>
 <head>
-<meta charset="UTF-8">
-<title>Calculator</title>
 <script src="index.js"></script>
 <link rel="stylesheet" href="styles.css">
-
-<body id="myImage" class="nogif">
-<div class="pad">
-<table border="10" class="center" style="background-color: aliceblue;" id="tablecenter">
-    <tr>
-        <td colspan="4"><input type="text" id="result" style="width: 350px; height: 50px; font-family: serif;"/></td>
-        <td><input type="button" value="c" onclick="clr()" class="button clear-btn" /> </td>
-    </tr>
-    <tr>
-        <td><button type="button" onclick="pushToStorage('0'); dis('0')" class="button small-btn">0</button></td>
-        <td><button type="button" onclick="pushToStorage('1'); dis('1')" class="button small-btn">1</button></td>
-        <td><button type="button" onclick="pushToStorage('2'); dis('2')" class="button small-btn">2</button></td>
-        <td><button type="button" onclick="pushToStorage('3'); dis('3')" class="button small-btn">3</button></td>
-        <td><button type="button" onclick="pushToStorage('4'); dis('4')" class="button small-btn">4</button></td>
-    </tr>
-    <tr>
-        <td><button type="button" onclick="pushToStorage('5'); dis('5')" class="button small-btn">5</button></td>
-        <td><button type="button" onclick="pushToStorage('6'); dis('6')" class="button small-btn">6</button></td>
-        <td><button type="button" onclick="pushToStorage('7'); dis('7')" class="button small-btn">7</button></td>
-        <td><button type="button" onclick="pushToStorage('8'); dis('8')" class="button small-btn">8</button></td>
-        <td><button type="button" onclick="pushToStorage('9'); dis('9')" class="button small-btn">9</button></td>
-    </tr>
-    <tr>
-
-        <td><button type="button" onclick="pushToStorage('+'); dis('+')" class="button medium-btn">+</button></td>
-        <td><button type="button" onclick="pushToStorage('-'); dis('-')" class="button medium-btn">-</button></td>
-        <td><button type="button" onclick="pushToStorage('*'); dis('*')" class="button medium-btn">*</button></td>
-        <td><button type="button" onclick="pushToStorage('/'); dis('/')" class="button medium-btn">/</button></td>
-        <td><button type="button" onclick="pushToStorage('^'); dis('^')" class="button medium-btn">^</button></td>
-        
-    </tr>
-    <tr>
-        <td><button type="button" onclick="pushToStorage('('); dis('(')" class="button medium-btn">(</button></td>
-        <td><button type="button" onclick="pushToStorage(')'); dis(')')" class="button medium-btn">)</button></td>
-        <td><button type="button" onclick="pushToStorage('%'); dis('%')" class="button medium-btn">%</button></td>
-        <td><button type="button" onclick="pushToStorage('.'); dis('.')" class="button medium-btn">.</button></td>
-        <td ><button type="button" onclick="infix()" class="button equal-btn">=</button></td>
-        
-    </tr>
-</table>
-</div>
-</body>
-<div style="text-align: center;">
-    <button type="button" onclick="toggleImage()">Funny ha ha</button>
-</div>
 </head>
+<body>
+<div class="grid-container" id="myImage">
+    <input type="text" id="result" class="text-input"  autofocus/>
+    <button type="button" onclick="clr()" class="clear">C</button>
+    <button type="button" onclick="dis('*')" class="times operands">*</button>
+    <button type="button" onclick="dis('/')" class="divide operands">/</button>
+    
+    <button type="button" onclick="dis('9')" >9</button>
+    <button type="button" onclick="dis('8')" >8</button>
+    <button type="button" onclick="dis('7')" >7</button>
+    <button type="button" onclick="dis('+')" class="plus operands">+</button>
+    <button type="button" onclick="dis('6')" >6</button>
+    <button type="button" onclick="dis('5')" >5</button>
+    <button type="button" onclick="dis('4')" >4</button>
+    <button type="button" onclick="dis('-')" class="subtract operands">-</button> 
+    <button type="button" onclick="dis('3')" >3</button>
+    <button type="button" onclick="dis('2')" >2</button>
+    <button type="button" onclick="dis('1')" >1</button>
+    <button type="button" onclick="dis('0')" >0</button>
+    <button type="button" onclick="dis('(')" style="grid-column: 4; grid-row:5" class="operands">(</button>
+    <button type="button" onclick="dis(')')"  style= "grid-column: 4; grid-row:6" class="operands">)</button>
+    
+     
+
+    <button type="button" onclick="dis('^')" class="operands">^</button>
+    <button type="button" onclick="dis('%')" class="operands">%</button>
+    <button type="button" onclick="dis('.')" class="operands">.</button>
+    <button type="button" onclick="infix()" class="equals">=</button>
+    
+</div>
+<button onclick="toggleImage()">Funny Ha Ha</button>
+</body>

@@ -1,45 +1,53 @@
-.center{
-    margin-left: auto;
-    margin-right: auto;
+.grid-container{
+    display: grid;
+    background-color: rgb(127, 255, 212);
+    grid-gap: 10px;
+    padding:10px;
+    border: 1px solid;
+    border-radius:15px;
+    max-width: 450px;
 }
 
-.pad{
-    padding-top: 50px;
+.grid-container > button {
+    background-color:grey;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 20px;
+}
+button.operands{
+    background-color:rgb(56, 202, 202)
 }
 
-body.nogif{
-    background-image: url('');
-    background-size: cover;
-    height: 100vh;
+button.plus {
+    grid-column: 4;
+    grid-row: 2/span 2;
 }
 
-.button {
-    padding: 10px;
-    border-radius: 10px;
-    margin:10px;
-    padding-bottom:1.5rem;
-    cursor: pointer;
+button.subtract{
+    grid-column: 4;
+    grid-row: 4;
 }
-
-.small-btn {
-    width: 50px;
-    height: 25px;
-    background-color: lightgray;
+button.times{
+    grid-column: 2;
+    grid-row: 2/span 2;
 }
-
-.medium-btn {
-    width: 70px;
-    height: 30px;
-    background-color: gray;
+button.divide{
+    grid-column: 3;
+    grid-row: 2/span 2;
 }
-
-.clear-btn {
-    width: 90px;
-    height: 40px;
-    background-color: red;
+button.clear{
+    grid-column: 1;
+    grid-row: 2/span 2;
+    background-color:red;
 }
-.equal-btn {
-    width: 90px;
-    height: 40px;
-    background-color: cornflowerblue;
+button.equals{
+    grid-column: 1/ span 3;
+    grid-row: 8;
+    background-color:rgb(58, 149, 165);
+}
+.text-input{
+    grid-column: 1/5;
+    margin: 10px;
+    padding: 30px;
+    font-size: 24px;
 }

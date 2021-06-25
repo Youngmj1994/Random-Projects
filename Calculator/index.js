@@ -60,7 +60,8 @@ function clr() {
 
 function dis(val)
 {
-    document.getElementById("result").value+=val
+    document.getElementById("result").value+=val;
+    document.getElementById("result").focus();
 }
 
 function toggleImage()
@@ -69,14 +70,11 @@ function toggleImage()
     if (imageToggle) {
         var a = document.getElementById('myImage');
         a.style.background = "url('math.gif')";
-        var b = document.getElementById('tablecenter');
-        b.style.opacity = .7;
     }
     else{
         var a = document.getElementById('myImage');
         a.style.background = "url('')";
-        var b = document.getElementById('tablecenter');
-        b.style.opacity = 1;
+        a.style.backgroundColor = "aquamarine";
     }
 }
 
